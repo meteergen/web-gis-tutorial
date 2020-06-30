@@ -59,6 +59,7 @@ var markerVectorLayer = new ol.layer.Vector({
   source: vectorSource,
   style: function(feature, resolution){
           var type = feature.getProperties().tree_type;
+
           if(type == 'pine'){
             return styles['pine'];
           }else if(type == 'poplar'){
@@ -144,9 +145,10 @@ queryVal = function query()
   if ( maxHeight>0) {
     var features = vectorSource.getFeatures();
     var i;
+    var queryList = [];
     for (i = 0; i < features.length; i++) {
       if ( features[i].values_.tree_height < maxHeight ) {
-        var queryList = [];
+        
         features[i].setStyle(new ol.style.Style({
           image: new ol.style.Circle({
             fill: new ol.style.Fill({
@@ -161,6 +163,7 @@ queryVal = function query()
       }
 
     }
+    console.log(queryList)
     return queryList;
   }else{
     var features = vectorSource.getFeatures();
@@ -193,6 +196,7 @@ var qstr = function query_str()
           })
 
         }))
+        
       }else{
         features[i].setStyle(null)
       }

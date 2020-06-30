@@ -6,7 +6,7 @@ height: 100%;
 }
 .map
 {
-    width: 80%;
+    width: 85%;
     height: 100%;
     float: right;
 }
@@ -14,7 +14,7 @@ height: 100%;
 .right_panel
 {
     
-    background-color: rgb(94, 173, 226);
-    width: 20%;
+    background-color: rgb(195, 54, 54);
+    width: 15%;
     height: 100%;
 }
