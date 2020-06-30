@@ -2,7 +2,7 @@ const express = require("express");
 const pg=require("pg").Pool;
 const bodyParser = require('body-parser'); 
 const app = express();
-const pool=new pg({host:'localhost',database:'Learning',user:'postgres',password:'3KDu2qt%',port:'5432',ssl:false});
+const pool=new pg({host:'ec2-54-75-244-161.eu-west-1.compute.amazonaws.com',database:'ddur7rqf4vplbp',user:'iytgzpiudiowcr',password:'637a71e918fea9940fbd05346478555530b245807a711a1bef5180853e6cf2ab%',port:'5432',ssl:false});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); 
 const _port = process.env.PORT || 8000;
@@ -36,6 +36,22 @@ app.post('/post', function(request, response){
                 response.end('Data Store Success!\n');      
         }); 
 });
+
+/*
+app.post('/delete', function(request, response){
+    pool.query("DELETE FROM "+table_name+" WHERE id = "+request.body.id+"   );", (err1, res1) => 
+        {        
+            if(err1) 
+                {   console.log(request.body);
+                    return console.log(err1);}
+                response.statusCode = 200;
+                response.setHeader('Content-Type', 'text/plain');
+                response.end('Data Deletion Success!\n');      
+        }); 
+});
+*/
+
+
 
 app.all('*', function (req, res) {
     res.status(200).sendFile(`/`, {root: _app_folder});
